@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<R_MAT type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>3</cols>
+  <dt>d</dt>
+  <data>
+    1. 0. 0. 0. 1. 0. 0. 0. 1.</data></R_MAT>
+<T_MAT type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>1</cols>
+  <dt>d</dt>
+  <data>
+    0. 0. 0.</data></T_MAT>
+<!-- This is comment -->
+</opencv_storage>
