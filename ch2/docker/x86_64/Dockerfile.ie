@@ -1,0 +1,33 @@
+FROM openvino/ubuntu20_dev:2021.4.2
+
+ARG UID=1000
+ARG GID=1000
+
+USER root
+ENV USERNAME openvino
+RUN usermod  --uid $UID $USERNAME && \
+    groupmod --gid $GID $USERNAME
+
+# install package
+RUN echo "Acquire::GzipIndexes \"false\"; Acquire::CompressionTypes::Order:: \"gz\";" > /etc/apt/apt.conf.d/docker-gzip-indexes
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        sudo \
+        less \
+        emacs \
+        tmux \
+        bash-completion \
+        command-not-found \
+        software-properties-common \
+        curl \
+        coreutils \
+        build-essential \
+        git \
+        git-lfs \
+        && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+USER $USERNAME
+WORKDIR /home/$USERNAME
+SHELL ["/bin/bash", "-l", "-c"]
