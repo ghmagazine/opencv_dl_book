@@ -94,7 +94,7 @@ OpenCVでCUDA、cuDNNを使った実装を有効化するためにCUDA Toolkit�
 
 ## 5. OpenCVアンインストール
 
-以下のスクリプトをOpenCVをアンインストールします。ここではOpenCVは`/usr/local`
+以下のスクリプトをOpenCVをアンインストールします。こののスクリプトではOpenCVは`/usr/local`以下にインストールされていることを想定しています。
 
 ```
 ./uninstall_opencv4.sh
