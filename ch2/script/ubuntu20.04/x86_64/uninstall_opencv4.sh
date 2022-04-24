@@ -11,4 +11,3 @@ sudo rm ${OPENCV_INSTALL_PATH}/bin/opencv_*
 sudo rm ${OPENCV_INSTALL_PATH}/bin/setup_vars_opencv4.sh
 sudo rm -rf ${OPENCV_INSTALL_PATH}/share/licenses/opencv4
 sudo rm -rf ${OPENCV_INSTALL_PATH}/share/opencv4
-
