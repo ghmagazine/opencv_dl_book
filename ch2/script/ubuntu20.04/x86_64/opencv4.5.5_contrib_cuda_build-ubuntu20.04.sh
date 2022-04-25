@@ -9,11 +9,9 @@ CUDA_ARCH_BIN="7.5"
 git clone https://github.com/opencv/opencv.git -b ${OPENCV_VERSION}
 git clone https://github.com/opencv/opencv_contrib.git -b ${OPENCV_VERSION}
 cd opencv
-mkdir build
-cd build
 cmake \
 -G "${GENERATOR_NAME}" \
---build build \
+-B build \
 -D BUILD_CUDA_STUBS=OFF \
 -D BUILD_DOCS=OFF \
 -D BUILD_EXAMPLES=OFF \
@@ -68,7 +66,7 @@ cmake \
 -D CUDA_ARCH_BIN=${CUDA_ARCH_BIN} \
 -D CUDA_ARCH_PTX="" \
 -D OPENCV_DNN_CUDA=ON \
--D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+-D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules \
 -D OPENCV_PYTHON_INSTALL_PATH=/usr/local/lib/python${PYTHON_VERSION}/dist-packages \
 -D WITH_1394=OFF \
 -D WITH_CUBLAS=ON \
@@ -110,9 +108,9 @@ cmake \
 -D WITH_WEBP=ON \
 -D WITH_XIMEA=OFF \
 -D WITH_XINE=OFF \
-..
+.
 
+cd build
 make -j
 sudo make install 
 sudo ldconfig
-

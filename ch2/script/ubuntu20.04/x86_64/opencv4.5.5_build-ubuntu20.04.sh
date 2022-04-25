@@ -7,11 +7,9 @@ PYTHON_VERSION=3.8
 # building
 git clone https://github.com/opencv/opencv.git -b ${OPENCV_VERSION}
 cd opencv
-mkdir build
-cd build
 cmake \
 -G "${GENERATOR_NAME}" \
---build build \
+-B build \
 -D BUILD_CUDA_STUBS=OFF \
 -D BUILD_DOCS=OFF \
 -D BUILD_EXAMPLES=OFF \
@@ -92,9 +90,9 @@ cmake \
 -D WITH_WEBP=ON \
 -D WITH_XIMEA=OFF \
 -D WITH_XINE=OFF \
-..
+.
 
+cd build
 make -j
 sudo make install 
 sudo ldconfig
-

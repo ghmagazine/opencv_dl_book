@@ -13,6 +13,5 @@ sudo apt update
 # Install OpenVINO Runtime Using the APT Package Manager
 sudo apt -y install openvino-${OPENVINO_VERSION}
 sudo ln -s /opt/intel/openvino_2022 /opt/intel/openvino
+source /opt/intel/openvino/setupvars.sh
 echo "source /opt/intel/openvino/setupvars.sh" >> $HOME/.bashrc
-source $HOME/.bashrc
-
