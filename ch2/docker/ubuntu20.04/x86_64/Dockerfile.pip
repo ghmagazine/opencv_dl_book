@@ -41,4 +41,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 USER $USERNAME
 WORKDIR /home/$USERNAME
 SHELL ["/bin/bash", "-l", "-c"]
-RUN pip3 install --user opencv-python==4.5.5.62
+RUN pip3 install --user opencv-python==4.5.5.64

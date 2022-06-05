@@ -37,7 +37,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 USER $USERNAME
 WORKDIR /home/$USERNAME
-SHELL ["/bin/bash", "-l", "-c"]
 
 RUN mkdir -p /home/$USERNAME/tmp && \
     curl -SL https://github.com/conda-forge/miniforge/releases/download/4.9.2-7/Miniforge3-Linux-aarch64.sh -o /home/$USERNAME/tmp/Miniforge3-Linux-aarch64.sh && \
@@ -45,8 +44,9 @@ RUN mkdir -p /home/$USERNAME/tmp && \
 ENV PATH /home/$USERNAME/miniforge3/bin:$PATH
 
 ENV CONDA_ENV python38
+ENV CONDA_DEFAULT_ENV $CONDA_ENV
 RUN conda init bash && \
     conda create -n $CONDA_ENV python=3.8
-ENV CONDA_DEFAULT_ENV $CONDA_ENV
 RUN echo "conda activate $CONDA_ENV" >> /home/$USERNAME/.bashrc
+SHELL ["/bin/bash", "--login", "-c"]
 RUN conda install opencv==4.5.5
